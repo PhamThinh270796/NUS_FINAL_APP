@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  descripstion: MyString
+  liked: 
+  posted_date: 2019-03-11
+  sharing_mode: false
+
+two:
+  title: MyString
+  descripstion: MyString
+  liked: 
+  posted_date: 2019-03-11
+  sharing_mode: false
