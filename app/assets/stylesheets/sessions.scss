@@ -1,0 +1,123 @@
+// Place all the styles related to the Sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.form-signin {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+	margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+	font-weight: normal;
+}
+
+.form-signin .form-control {
+	position: relative;
+	font-size: 16px;
+	height: auto;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+	z-index: 2;
+}
+
+.form-signin input[type="text"] {
+	margin-bottom: -1px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.form-signin input:nth-child(3) {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.form-signin input:nth-child(4) {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.form-signin .btn {
+	background-color: #3C5A99;
+	margin-top: 10px;
+}
+
+.form-signin .btn:hover {
+	background-color: #4f71ba;
+}
+
+.account-wall {
+	margin-top: 20px;
+	padding: 40px 0px 20px 0px;
+	background-color: #f7f7f7;
+	-moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.login-title {
+	color: #3C5A99;
+	font-size: 36px;
+	font-weight: bolder;
+	display: block;
+}
+
+.profile-img {
+	width: 96px;
+	height: 96px;
+	margin: 0 auto 10px;
+	display: block;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.need-help {
+	margin-top: 10px;
+}
+
+.new-account {
+	display: block;
+	margin-top: 10px;
+}
+
+.login_panel {
+	padding-top: 100px;
+}
+
+.navbar {
+	background-color: #3C5A99;
+	font-weight: bold;
+	height: 50px;
+}
+
+.login_button {
+	border-right: 1px solid white;
+	padding-right: 5px;
+}
+
+.login_button,
+.sign_up_button {
+	color: white;
+	font-size: 0.9em;
+	font-weight: 600;
+}
+
+.login_button:hover,
+.sign_up_button:hover {
+	color: white;
+	text-decoration: none;
+}
+
+.facebook_color {
+	color: #3C5A99;
+}

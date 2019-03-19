@@ -1,0 +1,38 @@
+<nav class="navbar navbar-dark d-flex h-100">
+  <a class="navbar-brand pl-3 float-left" href="#">Fotobook</a>
+  <div class="input-group mb-2" style="max-width: 360px; max-height: 30px">
+      <input type="text" class="form-control" placeholder="Search for photos, album">
+      <div class="input-group-append">
+        <button class="btn btn-light" type="button"><%= fa_icon "search" %></button>
+      </div>
+  </div>
+  <div class="float-right pr-3">
+    <%= link_to 'Login', new_user_session_path, class: "login_button"%>
+    <%= link_to 'Sign Up', new_user_registration_path, class: "sign_up_button"%>
+  </div>
+</nav>  
+
+  <section class="login_panel animated fadeIn">
+      <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-6 col-md-4 col-4">
+                <h1 class="text-center login-title">Fotobook Signup</h1>
+                <div class="account-wall">
+                  <img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
+                      alt="">
+                  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-signin", id:"form-signup"}) do |f| %>
+                      <%= render "devise/shared/error_messages", resource: resource %>
+                      <%= f.text_field :first_name, autofocus: true, class: "form-control pt-2", placeholder: "First Name"%>                 
+                      <%= f.text_field :last_name, autofocus: true, class: "form-control", placeholder: "Last Name"%>
+                      <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "Email"%>
+                      <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password" %>
+                      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Confirmation Password" %>
+                      <%= f.submit "Sign up", class: "btn btn-lg btn-primary btn-block" %>
+                  <% end %>
+                </div>
+                <%= link_to 'Back to Login page', new_user_session_path, class: "text-center new-account facebook_color"%>
+            </div>
+        </div>
+    </div>
+  </section>
+
