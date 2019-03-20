@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2019_03_19_035404) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "albums", force: :cascade do |t|
     t.string "album_title"
     t.string "description"
     t.boolean "sharing_mode"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_albums_on_user_id"
@@ -28,8 +31,8 @@ ActiveRecord::Schema.define(version: 2019_03_19_035404) do
     t.integer "liked"
     t.date "posted_date"
     t.boolean "sharing_mode"
-    t.integer "album_id"
-    t.integer "user_id"
+    t.bigint "album_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["album_id"], name: "index_photos_on_album_id"
@@ -42,13 +45,13 @@ ActiveRecord::Schema.define(version: 2019_03_19_035404) do
     t.string "email", default: "", null: false
     t.string "profile_picture"
     t.string "role", default: "user"
+    t.boolean "is_active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.boolean "is_active", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
