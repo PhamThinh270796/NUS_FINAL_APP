@@ -1,135 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
+<section class="photo-album">
+	<div class="container mt-5">
+		<div class="start">
+			<div class="row">
+				<div class="col-4">
+					<button class="btn btn-dark btn-block">My Feeds</button>
+				</div>
+				<div class="col-4">
+					<button class="btn btn-dark btn-block">My Photos</button>
+				</div>
+				<div class="col-4">
+					<button class="btn btn-dark btn-block">My Albums</button>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div class="row" style="height: 60vh">
+			<div class="col-md-6">
+				<div class="card mb-3" style="max-width: 540px;">
+					<div class="row no-gutters">
+						<div class="col-md-4">
+							<img src="http://lorempixel.com/850/850/?random=123" class="card-img h-100" alt="...">
+						</div>
+						<div class="col-md-8">
+							<div class="card-body">
+								<h5 class="card-title">Card title</h5>
+								<p class="card-text">
+									This is a wider card with supporting text below as a natural lead-in to
+									additional content. This content is a little bit longer.
+								</p>
+								<p class="card-text">
+									<small class="text-muted">Last updated 3 mins ago</small>
+									<small class="text-muted float-right">something</small>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-md-6">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-        crossorigin="anonymous">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="feed.css">
-</head>
-
-<body>
-    <nav class="navbar navbar-dark d-flex h-100">
-        <a class="navbar-brand pl-3 float-left" href="#">Fotobook</a>
-        <div class="input-group mb-2" style="max-width: 360px; max-height: 30px">
-            <input type="text" class="form-control" placeholder="Search for photos, album">
-            <div class="input-group-append">
-                <button class="btn btn-light" type="button"><i class="fas fa-search facebook_color"></i></button>
-            </div>
-        </div>
-        <div class="float-right pr-3">
-        <% if user_signed_in? %>
-            <%= link_to current_user.first_name + " " + current_user.last_name, new_user_session_path, class: "login_button"%>
-            <%= link_to 'Sign Out', destroy_user_session_path, method: "DELETE",class: "sign_up_button"%>
-        <% end %>
-        </div>
-    </nav>
-    <section id="photos-album">
-        <div class="row w-100 pt-5">
-            <div class="col-md-3 pl-5">
-                <ul id="option-list" class="list-unstyled pt-3">
-                    <li class="">Feeds</li>
-                    <li class="">My Photos</li>
-                    <li class="">My Albums</li>
-                </ul>
-            </div>
-            <!---->
-            <div class="col-md-8" style="background-color: white">
-                <div class="container pt-4">
-                    <div class="row justify-content-center">
-                        <div class="btn-group" id="photo-album-button">
-                            <button type="button" class="active btn" id="regi1">PHOTO</button>
-                            <button type="button" class="btn" id="regi2">ALBUM</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="container py-5">
-                    <div class="row row-margin-bottom justify-content-center">
-                        <div class="col-md-5 no-padding lib-item" data-category="view">
-                            <div class="lib-panel">
-                                <div class="row box-shadow">
-                                    <div class="col-md-6">
-                                        <img class="lib-img-show" src="http://lorempixel.com/850/850/?random=123">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="lib-row lib-header">
-                                            Example library
-                                            <div class="lib-header-seperator"></div>
-                                        </div>
-                                        <div class="lib-row lib-desc">
-                                            Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
-                                            Lorem
-                                            ipsum dolor Lorem ipsum dolor
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5 no-padding lib-item" data-category="ui">
-                            <div class="lib-panel">
-                                <div class="row box-shadow">
-                                    <div class="col-md-6">
-                                        <img class="lib-img" src="http://lorempixel.com/850/850/?random=456">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="lib-row lib-header">
-                                            Example library
-                                            <div class="lib-header-seperator"></div>
-                                        </div>
-                                        <div class="lib-row lib-desc">
-                                            Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
-                                            Lorem
-                                            ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem
-                                            ipsum
-                                            dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <nav>
-                            <ul class="pagination pagination-sm">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-1"></div>
-    </section>
-    <script>
-        $(".btn-group > .btn").click(function () {
-            $(".btn-group > .btn").removeClass("active");
-            $(this).addClass("active");
-        });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js"></script>
-</body>
-
-</html>
+			</div>
+			<div class="col-md-6">
+				<ul class="pagination pg-blue justify-content-end">
+					<li class="page-item disabled">
+						<a class="page-link" tabindex="-1">Previous</a>
+					</li>
+					<li class="page-item active"><a class="page-link">1</a></li>
+					<li class="page-item">
+						<a class="page-link">2 <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="page-item"><a class="page-link">3</a></li>
+					<li class="page-item">
+						<a class="page-link">Next</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
