@@ -1,0 +1,65 @@
+<section class="photo-album">
+  <div class="container mt-5">
+    <div class="start">
+      <div class="row">
+        <div class="col-4">
+          <%= link_to 'My Feeds', root_path, class: "option-button btn btn-dark btn-block"%>
+        </div>
+        <div class="col-4">
+          <%= link_to 'My Photos', photos_path, class: "option-button btn btn-dark btn-block"%>
+        </div>
+        <div class="col-4">
+          <%= link_to 'My Albums', albums_path, class: "option-button btn btn-dark btn-block"%>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row" style="height: 65vh">
+
+      <% @photos.each do |p| %>
+      <div class="col-md-6">
+        <div class="card mb-3" style="max-width: 540px">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <%= image_tag("#{p.path}", class: "card-img h-100") %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><%= p.title %></h5>
+                <p class="card-text">
+                  <%= p.descripstion %>
+                </p>
+                <p class="card-text">
+                  <small class="text-muted"><%= p.posted_date %></small>
+                  <small class="text-muted float-right"><%= p.liked %></small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+
+      </div>
+      <div class="col-md-6">
+        <ul class="pagination pg-blue justify-content-end">
+          <li class="page-item disabled">
+            <a class="page-link" tabindex="-1">Previous</a>
+          </li>
+          <li class="page-item active"><a class="page-link">1</a></li>
+          <li class="page-item">
+            <a class="page-link">2 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="page-item"><a class="page-link">3</a></li>
+          <li class="page-item">
+            <a class="page-link">Next</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

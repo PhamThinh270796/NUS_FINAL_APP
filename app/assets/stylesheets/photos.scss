@@ -1,0 +1,13 @@
+.option-button {
+  font-weight: 400;
+  font-size: 1rem;
+  color: white;
+}
+
+.btn {
+  background-color: #3C5A99;
+
+  &:hover {
+    background-color: #333333;
+  }
+}

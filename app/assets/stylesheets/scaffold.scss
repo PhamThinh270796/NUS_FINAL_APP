@@ -173,3 +173,18 @@ button {
 button:hover {
   cursor: pointer;
 }
+
+.facebook-color {
+  color: #3B6BAE;
+
+}
+
+.mt-140 {
+  margin-top: 140px
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}

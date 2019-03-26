@@ -14,4 +14,14 @@ class RegistrationsController < Devise::RegistrationsController
 			respond_with resource
 		end
 	end
+
+	protected
+
+	def update_resource(resource, params)
+		if params[:password].present?
+			resource.update(params)
+		else
+			resource.update_without_password(params.except(:current_password))
+		end
+  end
 end

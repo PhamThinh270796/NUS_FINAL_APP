@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  root "photos#index"
+  root "home#index"
+
   devise_for :users, controllers: {sessions: "sessions", registrations: "registrations"}
+
+  resources :photos, :albums
+
   namespace "admin" do
-    root "admin/users#index"
+    root "users#index"
   end
 end
