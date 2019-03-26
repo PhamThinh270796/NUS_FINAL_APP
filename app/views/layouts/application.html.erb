@@ -15,8 +15,12 @@
 
 <body>
   <%= render 'shared/navbar' %>
+  <% if flash.any? %>
+  <% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "alert alert-secondary w-50 container mt-5" %>
+  <% end %>
+  <% end %>
   <%= yield %>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"
     integrity="sha256-bu/BP02YMudBc96kI7yklc639Mu4iKGUNNcam8D2nLc=" crossorigin="anonymous"></script>
 </body>

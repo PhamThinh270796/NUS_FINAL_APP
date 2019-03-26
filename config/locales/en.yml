@@ -30,4 +30,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  PasswordRecovery: "Password Recovery"
+  Recovery: "Recovery"
+  SignUp: "Sign Up"
+  User/Pass: "Username / Password?"
+  Login: "Login"
+  BackToLoginPage: "Back to Login page"
+  AlreadyHaveAccount: "Already have an account ?"
+  CreateAnAccount: "Create an account"
+  Forgot: "Forgot"
+  RememberMe: "Remember Me"
+  FotobookLogin: "Fotobook Login"

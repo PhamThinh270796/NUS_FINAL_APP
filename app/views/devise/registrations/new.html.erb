@@ -6,7 +6,7 @@
       </div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "login100-form validate-form"}) do |f| %>
       <span class="login100-form-title">
-        Sign Up
+        <%= t('SignUp') %>
       </span>
       <% if resource.errors.any? %>
       <div class="alert alert-dark">
@@ -54,17 +54,17 @@
       </div>
 
       <div class="container-login100-form-btn">
-        <%= f.submit "Sign Up", class: "login100-form-btn" %>
+        <%= f.submit t('SignUp'), class: "login100-form-btn" %>
       </div>
 
       <div class="text-center pt-4">
         <span class="txt1">
-          Already have an account ?
+          <%= t("AlreadyHaveAccount") %>
         </span>
       </div>
 
       <div class="text-center p-t-136">
-        <%= link_to 'Back to Login page', new_user_session_path, class: "txt2"%>
+        <%= link_to t('BackToLoginPage'), new_user_session_path, class: "txt2"%>
         <i class="fas fa-angle-right ml-1"></i>
       </div>
       <% end %>

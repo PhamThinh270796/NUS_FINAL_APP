@@ -1,4 +1,4 @@
-<section class="login_panel">
+<section class="login_panel container">
   <div class="limiter">
     <div class="container-login100">
       <div class="wrap-login100">
@@ -7,11 +7,8 @@
         </div>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "login100-form validate-form", id:"login-form"}) do |f| %>
         <span class="login100-form-title">
-          Fotobook Login
+          <%= t('FotobookLogin') %>
         </span>
-        <% if flash[:alert] %>
-        <div class="alert alert-dark text-center"><%= flash[:alert] %></div>
-        <% end %>
         <ul id="errors"></ul>
         <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input100", placeholder: "Email"%>
@@ -30,25 +27,25 @@
         </div>
 
         <div class="container-login100-form-btn">
-          <%= f.submit "Login", class: "login100-form-btn" %>
+          <%= f.submit t("Login"), class: "login100-form-btn" %>
         </div>
 
         <div class="form-check text-center mt-4">
           <% if devise_mapping.rememberable? %>
           <%= f.check_box :remember_me, class: "form-check-input"%>
           <% end %>
-          <label class="form-check-label txt1" for="exampleCheck1">Remember Me</label>
+          <label class="form-check-label txt1" for="exampleCheck1"><%= t('RememberMe') %></label>
         </div>
 
         <div class="text-center p-t-12">
           <span class="txt1">
-            Forgot
+            <%= t('Forgot') %>
           </span>
-          <%= link_to t('Username / Password?'), new_user_password_path, class: "txt2"%>
+          <%= link_to t('User/Pass'), new_user_password_path, class: "txt2"%>
         </div>
 
         <div class="text-center p-t-136">
-          <%= link_to t('Create an account'), new_user_registration_path, class: "txt2"%>
+          <%= link_to t('CreateAnAccount'), new_user_registration_path, class: "txt2"%>
           <i class="fas fa-angle-right ml-1"></i><br>
         </div>
         <% end %>
