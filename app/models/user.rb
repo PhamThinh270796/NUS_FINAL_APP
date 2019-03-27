@@ -4,6 +4,7 @@ class User < ApplicationRecord
     devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
     has_many :albums, dependent: :destroy
     has_many :photos
+    accepts_nested_attributes_for :photos
     validates :first_name, length: {maximum: 25}, presence: true
     validates :last_name, length: {maximum: 25}, presence: true
     validates :password, length: {maximum: 64}

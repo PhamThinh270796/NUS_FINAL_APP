@@ -1,0 +1,54 @@
+<%= form_for @photos, url: {controller: "photos", action: "create"} do |f| %>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-lg-10 col-md-9 col-sm-6">
+      <h4 class="facebook-color float-left">New Photo</h4>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6"><%= link_to 'Back', :back, class: "float-right btn btn-dark btn-block"%>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group col-md-12">
+        <label>Title</label>
+        <%= f.text_field :title, class: "form-control", required: true %>
+      </div>
+      <div class="form-group col-md-12">
+        <label for="inputState">Sharing Mode</label>
+        <select id="inputState" class="form-control" name="photo[sharing_mode]">
+          <option selected value="public">Public</option>
+          <option value="private">Private</option>
+        </select>
+      </div>
+      <div class="col-md-12">
+        <div class="container">
+          <div class="avatar-upload">
+            <div class="avatar-edit">
+              <%= f.file_field :path , id: "imageUpload" %>
+              <label for="imageUpload"></label>
+            </div>
+            <div class="avatar-preview">
+              <div id="imagePreview" style="background-image: url();">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Descripstion</label>
+        <%= f.text_area :descripstion, class: "form-control rounded-0", rows: 5%>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-dark">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

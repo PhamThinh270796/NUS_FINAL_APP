@@ -66,3 +66,7 @@ gem 'devise'
 gem 'bootstrap'
 
 gem 'jquery-rails'
+
+gem 'carrierwave'
+
+gem 'kaminari'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_26_080525) do
+ActiveRecord::Schema.define(version: 2019_03_27_041838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2019_03_26_080525) do
     t.string "title"
     t.string "descripstion"
     t.integer "liked"
-    t.date "posted_date"
     t.boolean "sharing_mode"
     t.integer "album_id"
     t.bigint "user_id"
