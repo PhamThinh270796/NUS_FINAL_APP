@@ -70,3 +70,7 @@ gem 'jquery-rails'
 gem 'carrierwave'
 
 gem 'kaminari'
+
+gem "i18n-js"
+
+gem 'jquery-validation-rails'

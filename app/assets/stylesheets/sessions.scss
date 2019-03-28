@@ -415,3 +415,15 @@ nav {
 .form-check-input {
   margin-top: 0.4rem !important;
 }
+
+label.error {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: -1px;
+  color: crimson;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 5px;
+  width: 100%;
+}

@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col-lg-10 col-md-9 col-sm-6">
-      <h4 class="facebook-color float-left">New Photo</h4>
+      <h4 class="facebook-color float-left pt-2">New Photo</h4>
     </div>
     <div class="col-lg-2 col-md-3 col-sm-6"><%= link_to 'Back', :back, class: "float-right btn btn-dark btn-block"%>
     </div>
@@ -17,13 +17,13 @@
       <div class="form-group col-md-12">
         <label for="inputState">Sharing Mode</label>
         <select id="inputState" class="form-control" name="photo[sharing_mode]">
-          <option selected value="public">Public</option>
-          <option value="private">Private</option>
+          <option selected value="1">Public</option>
+          <option value="0">Private</option>
         </select>
       </div>
       <div class="col-md-12">
         <div class="container">
-          <div class="avatar-upload">
+          <div class="avatar-upload float-left">
             <div class="avatar-edit">
               <%= f.file_field :path , id: "imageUpload" %>
               <label for="imageUpload"></label>

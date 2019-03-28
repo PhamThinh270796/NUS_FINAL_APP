@@ -13,7 +13,7 @@
 		@photos = current_user.photos.new(photos_params)
 		if @photos.path.present?
 			if @photos.save
-				flash[:alert] = "Photo added successfully"
+				flash[:success] = "Photo added successfully"
 				redirect_to action: :index
 			end
 		else
