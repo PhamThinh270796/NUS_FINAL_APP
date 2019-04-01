@@ -1,0 +1,34 @@
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <div class="login100-pic my-auto pb-5" data-tilt>
+        <%= image_tag("img-01.png", alt: "IMG")%>
+      </div>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {class: "login100-form validate-form"}) do |f| %>
+      <span class="login100-form-title">
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <%= t('password_recovery') %>
+      </span>
+
+      <div class="wrap-input100 validate-input" data-validate="Password is required">
+        <%= f.email_field :email, autocomplete: "email", class: "input100", placeholder: t('email'), autofocus: true%>
+        <span class="focus-input100"></span>
+        <span class="symbol-input100">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+        </span>
+      </div>
+
+      <div class="container-login100-form-btn">
+        <%= f.submit t("recovery"), class: "login100-form-btn" %>
+      </div>
+
+      <div class="text-center pt-3">
+        <%= link_to t('login'), new_user_session_path, class: "txt2"%>
+        <span class="txt2">&#47;</span>
+        <%= link_to t('sign_up'), new_user_registration_path, class: "txt2"%>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</section>

@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_10_175717) do
+ActiveRecord::Schema.define(version: 2019_03_27_041838) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "albums", force: :cascade do |t|
     t.string "album_title"
     t.string "description"
     t.boolean "sharing_mode"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_albums_on_user_id"
@@ -26,12 +29,12 @@ ActiveRecord::Schema.define(version: 2019_03_10_175717) do
     t.string "title"
     t.string "descripstion"
     t.integer "liked"
-    t.date "posted_date"
     t.boolean "sharing_mode"
     t.integer "album_id"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "path"
     t.index ["album_id"], name: "index_photos_on_album_id"
     t.index ["user_id"], name: "index_photos_on_user_id"
   end
@@ -39,12 +42,18 @@ ActiveRecord::Schema.define(version: 2019_03_10_175717) do
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "email"
-    t.string "password"
+    t.string "email", default: "", null: false
     t.string "profile_picture"
-    t.string "role"
+    t.string "role", default: "user"
+    t.boolean "is_active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

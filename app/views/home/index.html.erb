@@ -1,0 +1,63 @@
+<section class="photo-album">
+  <div class="container mt-5">
+    <div class="start">
+      <div class="row">
+        <div class="col-4 text-center">
+          <%= link_to t('my_feeds'), root_path, class: "option-button"%>
+        </div>
+        <div class="col-4 text-center">
+          <%= link_to t('my_photos'), photos_path, class: "option-button"%>
+        </div>
+        <div class="col-4 text-center">
+          <%= link_to t('my_albums'), albums_path, class: "option-button"%>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row" id="photo-content">
+      <% @photos.each do |p| %>
+      <div class="col-md-4">
+        <figure class="snip1577">
+          <%= image_tag("#{p.path}", class: "card-img h-100 img-fluid") %>
+          <figcaption>
+            <h3><%= p.title %></h3>
+            <h4 class="text-justify"><%= p.descripstion %></h4>
+            <h5 class="pt-2">
+              <span class="float-left">
+                <%= p.liked %>
+                <i class="fas fa-thumbs-up"></i>
+              </span>
+              <span class="float-right">
+                <i class="fas fa-clock"></i>
+                <%= p.created_at.to_formatted_s(:long_ordinal) %>
+              </span>
+            </h5>
+          </figcaption>
+          <a href="#"></a>
+        </figure>
+      </div>
+      <% end %>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+
+      </div>
+      <div class="col-md-6">
+        <ul class="pagination pg-blue justify-content-end">
+          <li class="page-item disabled">
+            <a class="page-link" tabindex="-1">Previous</a>
+          </li>
+          <li class="page-item active"><a class="page-link">1</a></li>
+          <li class="page-item">
+            <a class="page-link">2 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="page-item"><a class="page-link">3</a></li>
+          <li class="page-item">
+            <a class="page-link">Next</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

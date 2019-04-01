@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <%= link_to 'Fotobook', root_path, class: "navbar-brand font-weight-bolder"%>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarColor01" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="col-6 d-none d-lg-block">
+    <form class="search-container">
+      <input id="search-box" type="text" class="search-box" name="q" />
+      <label for="search-box"><i class="fas fa-search search-icon"></i></label>
+      <input type="submit" id="search-submit" />
+    </form>
+
+  </div>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <div class="col-12">
+      <% if !user_signed_in? %>
+      <ul class="navbar-nav justify-content-end text-center">
+        <li class="nav-item">
+          <%= link_to t("login"), new_user_session_path ,class: "nav-link", id: "login-link"%>
+        </li>
+        <li class="nav-item d-none d-lg-block">
+          <p class="nav-link" id="nav-or">or</p>
+        </li>
+        <li class="nav-item pt-1 ">
+          <button class="btn btn-sm my-2 my-sm-0">
+            <%= link_to t("sign_up"), new_user_registration_path, id: "login-link" %>
+          </button>
+        </li>
+      </ul>
+      <% else %>
+      <ul class="navbar-nav justify-content-end text-center">
+        <li class="nav-item">
+          <%= link_to current_user.first_name + " " + current_user.last_name, edit_user_registration_path, class: "nav-link", id: "login-link"%>
+        </li>
+        <li class="nav-item d-none d-lg-block">
+          <p class="nav-link" id="nav-or">or</p>
+        </li>
+        <li class="nav-item pt-1 ">
+          <button class="btn btn-sm my-2 my-sm-0">
+            <%= link_to t('log_out'), destroy_user_session_path, method: "DELETE", id:"login-link"%>
+          </button>
+        </li>
+      </ul>
+      <% end %>
+    </div>
+  </div>
+</nav>
