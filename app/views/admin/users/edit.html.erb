@@ -1,0 +1,71 @@
+<%= form_for @user, url: { controller: "users", action: "update"} do |f| %>
+<div class="container">
+  <h4 class="facebook-color mt-5"><%= t('edit_user_information')%></h4>
+  <hr>
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-12">
+        <div class="form-group row mb-4">
+          <label class="col-sm-4 col-form-label"></label>
+          <h5 class="facebook-color col-sm-6">Basic Information</h5>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label"><%= t('email') %></label>
+          <div class="col-sm-6">
+            <%= f.email_field :email, readonly: true, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4"><%= t('first_name') %></label>
+          <div class="col-sm-6">
+            <%= f.text_field :first_name, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4"><%= t('last_name') %></label>
+          <div class="col-sm-6">
+            <%= f.text_field :last_name, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class= "col-sm-4">Sharing Mode</label>
+          <div class="col-sm-6">
+              <%= f.select(:is_active, [['Active', true],['In Active', false]], {},{class: "form-control"})%>
+          </div>
+        </div>
+
+        <div class="form-group row mb-4">
+          <label class="col-sm-4"></label>
+          <h5 class="facebook-color col-sm-6"><%= t('password') %></h5>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4"><%= t('new_password')%></label>
+          <div class="col-sm-6">
+            <%= f.password_field :password, class: "form-control", placeholder: "New Password"%>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4"><%= t('confirmation_password')%></label>
+          <div class="col-sm-6">
+            <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirmation Password"%>
+          </div>
+        </div>
+
+        <div class="actions">
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4"></label>
+          <div class="col-sm-6">
+            <%= f.submit t('save'), class: "btn btn-success"%>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<% end %>

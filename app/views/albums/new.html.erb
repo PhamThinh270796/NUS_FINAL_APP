@@ -1,10 +1,10 @@
-<%= form_for @albums, url: {controller: "albums", action: "create"} do |f| %>
+<%= form_for @album do |f| %>
 <div class="container">
   <div class="row mt-5">
     <div class="col-lg-10 col-md-9 col-sm-6">
       <h4 class="facebook-color float-left pt-2">New Album</h4>
     </div>
-    <div class="col-lg-2 col-md-3 col-sm-6"><%= link_to 'Back', :back, class: "float-right btn btn-dark btn-block"%>
+    <div class="col-lg-2 col-md-3 col-sm-6"><%= link_to t('back'), :back, class: "float-right btn btn-secondary btn-block"%>
     </div>
   </div>
   <hr>
@@ -21,33 +21,34 @@
           <option value="0">Private</option>
         </select>
       </div>
-      <div class="col-md-12">
-      <%= f.fields_for :photos do |p| %>
-        <div class="avatar-upload float-left">
-          <div class="avatar-edit">
-            <%= p.file_field :path, multiple: true, name: "photo[path][]", class: "upload-image", id: "imageUpload" %>
-            <label for="imageUpload"></label>
-          </div>
-          <div class="avatar-preview">
-            <div id="imagePreview" style="background-image: url();">
-            </div>
-          </div>
-        </div>
-      <% end %>
-      </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
         <label>Descripstion</label>
-        <%= f.text_area :description, class: "form-control rounded-0", rows: 5%>
+        <%= f.text_area :description, class: "form-control rounded", rows: 5%>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-12">
-      <div class="col-md-12">
-        <button type="submit" class="btn btn-dark">Save</button>
+
+  <div class="row" id="photo-row">
+    <%= f.fields_for :photos do |p| %>
+      <div class="col-md-3 avatar-input" id="photo-item-0">
+        <%= p.hidden_field :user_id, value: current_user.id %>
+        <div class="avatar-upload float-left">
+        <%= p.file_field :path, class: "image-upload mb-1" %>
+            <div class="avatar-edit">
+            </div>
+            <div class="avatar-preview">
+                <div class="image-preview" style="background-image: url();">
+                </div>
+            </div>
+        </div>
       </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-secondary"><%=t('save') %></button>
     </div>
   </div>
 </div>

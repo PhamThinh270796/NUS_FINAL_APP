@@ -6,12 +6,11 @@
     <div class="col-md-5">
       <div class="avatar-upload mt-140">
         <div class="avatar-edit">
-          <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+          <%= f.file_field :profile_picture , id: "imageUpload" %>
           <label for="imageUpload"></label>
         </div>
         <div class="avatar-preview">
-          <div id="imagePreview">
-          </div>
+          <%= tag.div id: "imagePreview", style: "background-image: url(#{resource.profile_picture.url});" %>
         </div>
       </div>
     </div>
@@ -86,7 +85,7 @@
         <div class="form-group row">
           <label class="col-sm-4"></label>
           <div class="col-sm-6">
-            <%= f.submit t("Save"), class: "btn btn-success" %>
+            <%= f.submit t("save"), class: "btn btn-success" %>
           </div>
         </div>
       </div>

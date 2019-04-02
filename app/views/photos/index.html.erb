@@ -1,55 +1,43 @@
 <section class="photo-album">
-	<div class="container mt-5">
-		<div class="row justify-content-end">
-			<div class="col-md-12 col-lg-10 my-auto">
-				<%= link_to '< Back to Feeds', root_path, class:"facebook-color float-left pt-2 h5" %>
-			</div>
-			<div class="col-sm-12 col-lg-2">
-				<%= link_to 'Add New Photo', new_photo_path, class: "btn btn-dark btn-block"%>
-			</div>
-		</div>
-		<hr>
-		<div class="row" id="photo-content">
-			<% @photos.each do |p| %>
-			<div class="col-md-4">
-				<figure class="snip1577">
-					<%= image_tag("#{p.path}", class: "card-img h-100 img-fluid") %>
-					<figcaption>
-						<h3><%= p.title %></h3>
-						<h4 class="text-justify"><%= p.descripstion %></h4>
-						<h5 class="pt-2">
-							<span class="float-left">
-								<%= p.liked %>
-								<i class="fas fa-thumbs-up"></i>
-							</span>
-							<span class="float-right">
-								<i class="fas fa-clock"></i>
-								<%= p.created_at.to_formatted_s(:long_ordinal) %>
-							</span>
-						</h5>
-					</figcaption>
-					<a href="#"></a>
-				</figure>
-			</div>
-			<% end %>
-		</div>
-		<hr>
-		<div class="row">
-			<div class="col-md-12">
-				<ul class="pagination pg-blue justify-content-center">
-					<li class="page-item disabled">
-						<a class="page-link" tabindex="-1">Previous</a>
-					</li>
-					<li class="page-item active"><a class="page-link">1</a></li>
-					<li class="page-item">
-						<a class="page-link">2 <span class="sr-only">(current)</span></a>
-					</li>
-					<li class="page-item"><a class="page-link">3</a></li>
-					<li class="page-item">
-						<a class="page-link">Next</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+  <div class="container mt-5">
+    <div class="row justify-content-end">
+      <div class="col-md-12 col-lg-10 my-auto">
+        <h4 class="facebook-color float-left pt-2"><%= t('photos')%></h4>
+      </div>
+      <div class="col-sm-12 col-lg-2">
+        <%= link_to t('add_new_photo'), new_photo_path, class: "btn btn-secondary btn-block"%>
+      </div>
+    </div>
+    <hr>
+    <div class="row" id="photo-content">
+      <% @photos.each do |p| %>
+      <div class="col-md-6 col-lg-6 col-xl-4">
+          <figure class="snip1577">
+            <%= image_tag("#{p.path.thumb.url}", class: "card-img h-100 img-fluid") %>
+            <figcaption>
+              <h3><%= p.title %></h3>
+              <h4 class="text-justify"><%= p.descripstion %></h4>
+              <h5 class="pt-2">
+                <span class="float-left">
+                  <%= p.liked %>
+                  <i class="fas fa-thumbs-up"></i>
+                </span>
+                <span class="float-right">
+                  <i class="fas fa-clock"></i>
+                  <%= p.created_at.to_formatted_s(:long_ordinal) %>
+                </span>
+              </h5>
+            </figcaption>
+            <%= link_to '', edit_photo_path(p) %>
+          </figure>
+        </div>
+      <% end %>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-12 justify-content-center">
+        <%= paginate @photos, themes: "bootstrap4"%>
+      </div>
+    </div>
+  </div>
 </section>
