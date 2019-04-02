@@ -1,14 +1,16 @@
 .option-button {
-  font-weight: 400;
+  font-weight: lighter;
   font-size: 1rem;
   color: black;
 }
 
-.btn {
+.btn.btn-secondary {
   background-color: #3C5A99;
+  border: 1px solid #3C5A99;
 
   &:hover {
     background-color: #333333;
+    border: 1px solid #333333;
   }
 }
 
@@ -50,11 +52,7 @@
   transition: all 0.4s ease;
 }
 
-.snip1577 img {
-  max-width: 100%;
-  backface-visibility: hidden;
-  vertical-align: top;
-}
+
 
 .snip1577:before,
 .snip1577:after {
@@ -170,4 +168,8 @@
 .snip1577.hover h5 {
   -webkit-transition-delay: 0.3s;
   transition-delay: 0.3s;
+}
+
+#imageUpload {
+  display: none;
 }
