@@ -57,7 +57,8 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
-
+gem 'rails-controller-testing'
+gem 'shoulda-matchers', require: false
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -74,3 +75,5 @@ gem 'kaminari', '~> 1.1.1'
 gem "i18n-js", '~> 3.2.1'
 
 gem 'jquery-validation-rails', '~> 1.19.0'
+
+gem 'rspec-rails', '~> 3.8.2'

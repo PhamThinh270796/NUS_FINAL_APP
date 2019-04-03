@@ -3,7 +3,7 @@ class SessionsController < Devise::SessionsController
     super do |resource|
       if !resource.is_active?
         sign_out
-        flash[:alert] = "Account has been locked. Please contact your Administrator."
+        flash[:alert] = t(".locked_account")
         redirect_to new_user_session_path
         return
       else

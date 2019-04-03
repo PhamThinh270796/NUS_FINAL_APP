@@ -7,7 +7,7 @@
         </div>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "login100-form validate-form", id:"login-form"}) do |f| %>
         <span class="login100-form-title">
-          <%= t('fotobook_login') %>
+          <%= t('.fotobook_login') %>
         </span>
         <ul id="errors" class="list-group mb-3">
 
@@ -36,18 +36,18 @@
           <% if devise_mapping.rememberable? %>
           <%= f.check_box :remember_me, class: "form-check-input"%>
           <% end %>
-          <label class="form-check-label txt1" for="exampleCheck1"><%= t('remember_me') %></label>
+          <label class="form-check-label txt1" for="exampleCheck1"><%= t('.remember_me') %></label>
         </div>
 
         <div class="text-center p-t-12">
           <span class="txt1">
-            <%= t('forgot') %>
+            <%= t('.forgot') %>
           </span>
-          <%= link_to t('user_pass'), new_user_password_path, class: "txt2"%>
+          <%= link_to t('.user_pass'), new_user_password_path, class: "txt2"%>
         </div>
 
         <div class="text-center p-t-136">
-          <%= link_to t('create_an_account'), new_user_registration_path, class: "txt2"%>
+          <%= link_to t('.create_an_account'), new_user_registration_path, class: "txt2"%>
           <i class="fas fa-angle-right ml-1"></i><br>
         </div>
         <% end %>

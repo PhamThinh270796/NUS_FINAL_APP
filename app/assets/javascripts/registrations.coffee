@@ -1,5 +1,6 @@
-$ ->
-  $('#new_user').validate
+$(document).on 'turbolinks:load', () ->
+  form = $('#new_user')
+  form.validate
     submitHandler: (form) ->
       form.submit()
       return

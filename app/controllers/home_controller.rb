@@ -1,11 +1,13 @@
 class HomeController < ApplicationController
+  ALBUMS_PER_PAGE = 6
+  PHOTOS_PER_PAGE = 6
   def index
     if params[:type].eql?("Album")
-      @albums = Album.where(sharing_mode: true).page(params[:page]).per(6)
-      @albums = Album.where("sharing_mode = ? AND album_title = ?", true, params[:q]).page(params[:page]).per(6) if !params[:q].blank?
+      @albums = Album.shared.page(params[:page]).per(ALBUMS_PER_PAGE)
+      @albums = Album.shared.search(params[:q]).page(params[:page]).per(ALBUMS_PER_PAGE)  if !params[:q].blank?
     else
-      @photos = Photo.where(sharing_mode: true).page(params[:page]).per(6)
-      @photos = Photo.where("sharing_mode = ? AND title = ?", true, params[:q]).page(params[:page]).per(6) if !params[:q].blank?
+      @photos = Photo.shared.page(params[:page]).per(PHOTOS_PER_PAGE)
+      @photos = Photo.shared.search(params[:q]).page(params[:page]).per(PHOTOS_PER_PAGE) if !params[:q].blank?
     end
   end
 end

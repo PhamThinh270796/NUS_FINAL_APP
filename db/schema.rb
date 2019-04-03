@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_31_155757) do
+ActiveRecord::Schema.define(version: 2019_04_03_084421) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_03_31_155757) do
   create_table "albums", force: :cascade do |t|
     t.string "album_title"
     t.string "description"
-    t.boolean "sharing_mode"
+    t.boolean "is_public"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(version: 2019_03_31_155757) do
 
   create_table "photos", force: :cascade do |t|
     t.string "title"
-    t.string "descripstion"
+    t.string "description"
     t.integer "liked"
-    t.boolean "sharing_mode", default: true
+    t.boolean "is_public", default: true
     t.integer "album_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false

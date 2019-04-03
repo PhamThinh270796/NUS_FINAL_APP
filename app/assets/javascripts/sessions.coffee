@@ -1,8 +1,9 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-$ ->
-  $('#login-form').validate
+$(document).on 'turbolinks:load', () ->
+  form = $('#login-form')
+  form.validate
     submitHandler: (form) ->
       form.submit()
       return

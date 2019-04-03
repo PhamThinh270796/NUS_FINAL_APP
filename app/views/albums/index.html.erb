@@ -2,39 +2,41 @@
   <div class="container mt-5">
     <div class="row justify-content-end">
       <div class="col-md-12 col-lg-10 my-auto">
-          <h4 class="facebook-color float-left pt-2"><%= t('albums')%></h4>
+          <h4 class="facebook-color float-left pt-2"><%= t('album')%></h4>
       </div>
       <div class="col-sm-12 col-lg-2">
-        <%= link_to t('add_new_album'), new_album_path, class: "btn btn-secondary btn-block"%>
+        <%= link_to t('.add_new_album'), new_album_path, class: "btn btn-secondary btn-block"%>
       </div>
     </div>
     <hr>
     <div class="row" id="photo-content">
-      <% @albums.each do |a| %>
+      <% @albums.each do |album| %>
       <div class="col-md-6 col-lg-6 col-xl-4">
         <figure class="snip1577">
-          <%= image_tag("#{a.photos.first.path.thumb.url}", class: "card-img h-100 img-fluid") %>
+          <% if album.photos.any? %>
+            <%= image_tag("#{album.photos.first.path.thumb.url}", class: "card-img h-100 img-fluid") %>
+          <% end %>
           <figcaption>
-            <h3><%= a.album_title %></h3>
-            <h4 class="text-justify"><%= a.description %></h4>
+            <h3><%= album.album_title %></h3>
+            <h4 class="text-justify"><%= album.description %></h4>
             <h5 class="pt-2">
               <span class="float-left">
                 <i class="fas fa-thumbs-up"></i>
               </span>
               <span class="float-right">
                 <i class="fas fa-clock"></i>
-                <%= a.created_at.to_formatted_s(:long_ordinal) %>
+                <%= album.created_at.to_formatted_s(:long_ordinal) %>
               </span>
             </h5>
           </figcaption>
-          <%= link_to '', edit_album_path(a) %>
+          <%= link_to '', edit_album_path(album) %>
         </figure>
       </div>
       <% end %>
     </div>
     <hr>
     <div class="row">
-      <div class="col-md-12 justify-content-center">
+      <div class="col-md-12 panigate-center">
         <%= paginate @albums, themes:"bootstrap4"%>
       </div>
     </div>

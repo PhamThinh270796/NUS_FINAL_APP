@@ -178,14 +178,6 @@ button:hover {
   color: #3B6BAE;
 }
 
-.mt-140 {
-  margin-top: 140px
-}
-
-.mt-12 {
-  margin-top: 12px;
-}
-
 .clearfix::after {
   content: "";
   clear: both;
@@ -205,11 +197,7 @@ nav {
   max-height: 55px;
 }
 
-.col-md-6 ul.pagination {
-  float: right !important;
-}
-
-.col-md-12 ul.pagination {
+.panigate-center ul.pagination {
   justify-content: center;
 }
 
@@ -249,4 +237,9 @@ ul.pagination {
     margin-left: 50px;
     margin-top: 100px;
   }
+}
+
+
+#navbarNav ul li {
+  margin-top: 13px;
 }
