@@ -4,7 +4,7 @@ class Photo < ApplicationRecord
   mount_uploader :path, PhotoUploader
   scope :shared, -> { where(is_public: true) }
   scope :search, -> (keyword) { where("title LIKE ?", "%#{keyword}%")}
-  before_save :set_photo_is_public
+  before_create :set_photo_is_public
 
   def set_photo_is_public
     if !self.album_id.nil?

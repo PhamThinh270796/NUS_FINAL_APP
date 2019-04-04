@@ -1,10 +1,9 @@
 class Admin::UsersController < Admin::AdminController
-  USERS_PER_PAGE = 10
   before_action :authenticate_user!
   before_action :get_user, only: [:update, :edit, :destroy]
 
   def index
-    @users = User.all.page(params[:page]).per(USERS_PER_PAGE)
+    @users = User.all.page(params[:page]).per(Constant::USERS_PER_PAGE)
   end
 
   def edit

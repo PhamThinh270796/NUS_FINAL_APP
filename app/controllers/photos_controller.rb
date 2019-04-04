@@ -1,10 +1,9 @@
   class PhotosController < ApplicationController
-  PHOTO_PER_PAGE = 6
   before_action :authenticate_user!
   before_action :get_photo, only: [:show, :update, :edit, :destroy]
 
   def index
-    @photos = current_user.photos.page(params[:page]).per(PHOTO_PER_PAGE)
+    @photos = current_user.photos.page(params[:page]).per(Constant::PHOTOS_PER_PAGE)
   end
 
   def new

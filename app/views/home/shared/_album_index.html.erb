@@ -1,24 +1,27 @@
-<% @albums.each do |a| %>
+<% @albums.each do |album| %>
   <div class="col-md-4">
     <figure class="snip1577">
-      <%= image_tag("#{a.photos.first.path.thumb.url}", class: "card-img h-100 img-fluid") %>
+      <% if album.photos.any? %>
+        <%= image_tag("#{album.photos.first.path.thumb.url}", class: "card-img h-100 img-fluid") %>
+      <% end %>
       <figcaption>
-        <h3><%= a.album_title %></h3>
-        <h4 class="text-justify"><%= a.description %></h4>
+        <h3><%= album.user.first_name + " " + album.user.last_name%></h3>
+        <h3 class="mt-2 pt-5"><%= album.album_title %></h3>
+        <h4 class="text-justify"><%= album.description %></h4>
         <h5 class="pt-2">
           <span class="float-left">
             <i class="fas fa-thumbs-up"></i>
           </span>
           <span class="float-right">
             <i class="fas fa-clock"></i>
-            <%= a.created_at.to_formatted_s(:long_ordinal) %>
+            <%= album.created_at.to_formatted_s(:long_ordinal) %>
           </span>
         </h5>
       </figcaption>
-      <a href="#" id="open-modal" data-toggle="modal" data-target="#exampleModalCenter<%= a.id %>"></a>
+      <a href="#" id="open-modal" data-toggle="modal" data-target="#exampleModalCenter<%= album.id %>"></a>
     </figure>
     <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter<%= a.id %>" tabindex="-1" role="dialog"
+    <div class="modal fade" id="exampleModalCenter<%= album.id %>" tabindex="-1" role="dialog"
       aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -26,32 +29,37 @@
             <!-- Carousel -->
             <div class="row">
               <div class="col-md-12">
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div id="carouselExampleIndicators<%= album.id %>" class="carousel slide" data-ride="carousel">
                   <ol class="carousel-indicators">
-                    <% a.photos.each_with_index do |p, index| %>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>" class="active"></li>
+                    <% album.photos.each_with_index do |photo, index| %>
+                    <li data-target="#carouselExampleIndicators<%= album.id %>" data-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>"></li>
                     <% end %>
                   </ol>
                   <div class="carousel-inner">
-                    <% a.photos.each_with_index do |p, index| %>
-                    <div class="carousel-item">
-                      <%= image_tag("#{p.path.url}", class: "d-block w-100", alt: "First slide") %>
+                    <div class="carousel-item active">
+                      <% if album.photos.any? %>
+                        <%= image_tag( album.photos.first.path.url, class: "d-block w-100") %>
+                      <% end %>
                     </div>
+                    <% album.photos.drop(1).each_with_index do |photo, index| %>
+                      <div class="carousel-item">
+                        <%= image_tag( photo.path.url, class: "d-block w-100", alt: "First slide") %>
+                      </div>
                     <% end %>
                   </div>
-                  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <a class="carousel-control-prev" href="#carouselExampleIndicators<%= album.id %>" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                   </a>
-                  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <a class="carousel-control-next" href="#carouselExampleIndicators<%= album.id %>" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                   </a>
                 </div>
               </div>
-              <div class="col-md-12 text-center">
-                <p class="display-4"><%= a.album_title %></p>
-                <p class="text-justify"><%= a.description %></p>
+              <div class="col-md-12 text-center" id="pagination">
+                <p class="display-4"><%= album.album_title %></p>
+                <p class="text-justify"><%= album.description %></p>
               </div>
             </div>
           </div>

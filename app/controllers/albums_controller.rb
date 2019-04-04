@@ -1,10 +1,9 @@
 class AlbumsController < ApplicationController
-  ALBUMS_PER_PAGE = 6
   before_action :authenticate_user!
   before_action :get_album, only: [:show, :destroy, :update, :edit]
 
   def index
-    @albums = current_user.albums.page(params[:page]).per(ALBUMS_PER_PAGE)
+    @albums = current_user.albums.page(params[:page]).per(Constant::ALBUMS_PER_PAGE)
   end
 
   def new
@@ -32,7 +31,6 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    params[:album][:photos_attributes]
     if @album.update(album_params)
       flash[:success] = t('.album_updated_successfully')
       redirect_to action: :index

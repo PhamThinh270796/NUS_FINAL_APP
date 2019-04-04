@@ -16,8 +16,13 @@
           <% if album.photos.any? %>
             <%= image_tag("#{album.photos.first.path.thumb.url}", class: "card-img h-100 img-fluid") %>
           <% end %>
+          <% if !album.is_public? %>
+            <span class="symbol-photo">
+              <i class="fa fa-lock" aria-hidden="true"></i>
+            </span>
+          <% end %>
           <figcaption>
-            <h3><%= album.album_title %></h3>
+            <h3 class="truncate"><%= album.album_title %></h3>
             <h4 class="text-justify"><%= album.description %></h4>
             <h5 class="pt-2">
               <span class="float-left">

@@ -184,15 +184,6 @@ button:hover {
   display: table;
 }
 
-h4.text-justify {
-  height: 3.6em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-}
-
 nav {
   max-height: 55px;
 }
@@ -226,7 +217,7 @@ ul.pagination {
     margin-bottom: 10px;
   }
 
-  #side-bar{
+  #side-bar {
     text-align: center !important;
     padding-top: 50px;
   }
@@ -239,7 +230,13 @@ ul.pagination {
   }
 }
 
-
 #navbarNav ul li {
   margin-top: 13px;
+}
+
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

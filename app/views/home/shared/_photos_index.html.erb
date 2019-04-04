@@ -3,8 +3,8 @@
     <figure class="snip1577">
       <%= image_tag("#{photo.path.thumb.url}", class: "card-img h-100 img-fluid") %>
       <figcaption>
-        <h3><%= photo.user.first_name + " " + photo.user.last_name%></h3>
-        <h3 class="pt-5 mt-2"><%= photo.title %></h3>
+        <h3 class="mb-5"><%= photo.user.first_name + " " + photo.user.last_name%></h3>
+        <h3 class="truncate"><%= photo.title %></h3>
         <h4 class="text-justify"><%= photo.description %></h4>
         <h5 class="pt-2">
           <span class="float-left">

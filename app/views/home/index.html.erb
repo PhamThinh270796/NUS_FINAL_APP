@@ -3,10 +3,10 @@
     <div class="start">
       <div class="row justify-content-center">
         <div class="col-12 text-center">
-            <input id="toggle-on" class="toggle toggle-left" name="toggle" value="false" type="radio" <%= params[:type].nil? ? 'checked' : '' %>>
-            <label for="toggle-on" class="btn-photo-album btn-photo"><%= link_to 'PHOTOS', root_path %></label>
+            <input id="toggle-on" class="toggle toggle-left" name="toggle" value="false" type="radio" <%= params[:type] != 'Album' ? 'checked' : '' %>>
+            <label for="toggle-on" class="btn-photo-album btn-photo" id="label-on"><%= link_to 'PHOTOS', root_path(type: 'Photo', q: params[:q]) %></label>
             <input id="toggle-off" class="toggle toggle-right" name="toggle" value="true" type="radio" <%= params[:type] == 'Album' ? 'checked' : '' %>>
-            <label for="toggle-off" class="btn-photo-album btn-album"><%= link_to 'ALBUMS', request.query_parameters.merge({:type => 'Album'}) %></label>
+            <label for="toggle-off" class="btn-photo-album btn-album" id="label-off"><%= link_to 'ALBUMS', root_path(:type => 'Album', q: params[:q]) %></label>
         </div>
       </div>
     </div>

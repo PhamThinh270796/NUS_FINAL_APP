@@ -14,8 +14,13 @@
       <div class="col-md-6 col-lg-6 col-xl-4">
           <figure class="snip1577">
             <%= image_tag("#{photo.path.thumb.url}", class: "card-img h-100 img-fluid") %>
+            <% if !photo.is_public? %>
+              <span class="symbol-photo">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+              </span>
+            <% end %>
             <figcaption>
-              <h3><%= photo.title %></h3>
+              <h3 class="truncate"><%= photo.title %></h3>
               <h4 class="text-justify"><%= photo.description %></h4>
               <h5 class="pt-2">
                 <span class="float-left">

@@ -16,10 +16,7 @@
       </div>
       <div class="form-group col-md-12">
         <label for="inputState"><%= t('sharing_mode') %></label>
-        <select id="inputState" class="form-control" name="album[is_public]">
-          <option selected value="1"><%= t('public') %></option>
-          <option value="0"><%= t('private') %></option>
-        </select>
+        <%= f.select(:is_public, [['Public', true],['Private', false]], {}, {class: "form-control"})%>
       </div>
     </div>
     <div class="col-md-6">
