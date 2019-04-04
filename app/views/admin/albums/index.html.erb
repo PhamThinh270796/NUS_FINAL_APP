@@ -1,0 +1,49 @@
+<section class="photo-album">
+    <div class="container mt-5">
+      <div class="row justify-content-end">
+        <div class="col-md-12 col-lg-10 my-auto">
+          <%= link_to t('back_to_feeds'), admin_root_path, class:"btn btn-secondary float-left", id: "back-to-feeds"%>
+        </div>
+        <div class="col-sm-12 col-lg-2">
+        </div>
+      </div>
+      <hr>
+      <div class="row" id="photo-content">
+        <% @albums.each do |album| %>
+        <div class="col-md-4">
+          <figure class="snip1577">
+            <% if album.photos.any? %>
+              <%= image_tag("#{album.photos.first.path.thumb.url}", class: "card-img h-100 img-fluid") %>
+            <% end %>
+            <% if !album.is_public? %>
+              <span class="symbol-photo">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+              </span>
+            <% end %>
+            <figcaption>
+              <h3><%= album.user.first_name + " " + album.user.last_name%></h3>
+              <h3 class="mt-2 pt-5"><%= album.album_title %></h3>
+              <h4 class="text-justify"><%= album.description %></h4>
+              <h5 class="pt-2">
+                <span class="float-left">
+                  <i class="fas fa-thumbs-up"></i>
+              </span>
+                <span class="float-right">
+                  <i class="fas fa-clock"></i>
+                  <%= album.created_at.to_formatted_s(:long_ordinal) %>
+                </span>
+              </h5>
+            </figcaption>
+            <%= link_to '', edit_admin_album_path(album) %>
+          </figure>
+        </div>
+        <% end %>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-12 panigate-center">
+          <%= paginate @albums, themes:"bootstrap4"%>
+        </div>
+      </div>
+    </div>
+  </section>

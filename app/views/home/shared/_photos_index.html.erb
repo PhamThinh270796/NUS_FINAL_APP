@@ -1,0 +1,59 @@
+<% @photos.each do |photo| %>
+  <div class="col-md-6 col-lg-6 col-xl-4">
+    <figure class="snip1577">
+      <%= image_tag("#{photo.path.thumb.url}", class: "card-img h-100 img-fluid") %>
+      <figcaption>
+        <h3 class="mb-5"><%= photo.user.first_name + " " + photo.user.last_name%></h3>
+        <h3 class="truncate"><%= photo.title %></h3>
+        <h4 class="text-justify"><%= photo.description %></h4>
+        <h5 class="pt-2">
+          <span class="float-left">
+            <%= photo.liked %>
+            <i class="fas fa-thumbs-up"></i>
+          </span>
+          <span class="float-right">
+            <i class="fas fa-clock"></i>
+            <%= photo.created_at.to_formatted_s(:long_ordinal) %>
+          </span>
+        </h5>
+      </figcaption>
+      <a href="#" data-toggle="modal" data-target="#exampleModalCenter<%= photo.id %>"></a>
+    </figure>
+  </div>
+  <!-- MODAL -->
+  <div class="modal fade" id="exampleModalCenter<%= photo.id %>" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="row no-gutters">
+          <div class="col-md-6">
+            <span class="helper"
+              style="display: inline-block; height: 100%; vertical-align: middle;"></span><%= image_tag("#{photo.path.url}", class: "img-fluid") %>
+          </div>
+          <div class="col-md-6">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-12 mt-2">
+                  <p class="display-4 ml-3"><%= photo.title %></p>
+                  <p class="text-justify mx-3"><%= photo.description %></p>
+                </div>
+                <div class="col-md-12 pb-2">
+                  <p class="pt-2">
+                    <span class="float-left pl-3">
+                      <%= photo.liked %>
+                      <i class="fas fa-thumbs-up facebook-color"></i>
+                    </span>
+                    <span class="float-right pr-3">
+                      <i class="fas fa-clock facebook-color"></i>
+                      <%= photo.created_at.to_formatted_s(:long_ordinal) %>
+                    </span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

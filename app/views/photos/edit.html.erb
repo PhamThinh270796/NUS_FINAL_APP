@@ -1,0 +1,51 @@
+<%= form_for @photos do |f| %>
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-lg-10 col-md-9 col-sm-6">
+        <h4 class="facebook-color float-left pt-2"><%= t('.edit_photo')%></h4>
+      </div>
+      <div class="col-lg-2 col-md-3 col-sm-6"><%= link_to 'Back', :back, class: "float-right btn btn-secondary btn-block"%>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-6 pl-0">
+        <div class="form-group col-md-12">
+          <label><%= t('title') %></label>
+          <%= f.text_field :title, class: "form-control", required: true %>
+        </div>
+        <div class="form-group col-md-12 pt-2">
+          <label for="inputState"><%= t('sharing_mode') %></label>
+          <%= f.select(:is_public, [['Public', true],['Private', false]], {}, {class: "form-control"})%>
+        </div>
+        <div class="col-md-12">
+          <div class="container">
+            <div class="avatar-upload float-left">
+              <div class="avatar-edit">
+                <%= f.file_field :path , id: "imageUpload" %>
+                <label for="imageUpload"></label>
+              </div>
+              <div class="avatar-preview">
+                <%= tag.div id: "imagePreview", style: "background-image: url(#{@photos.path.url});" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label><%= t('description') %></label>
+          <%= f.text_area :description, class: "form-control rounded", rows: 5%>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="col-md-12">
+          <%= f.submit t('save'), class:"btn btn-secondary float-left"%>
+          <%= link_to t('delete'), photo_path(@photos), method: 'delete', data: {confirm: "Are you sure ?"}, class: "btn btn-danger float-right" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

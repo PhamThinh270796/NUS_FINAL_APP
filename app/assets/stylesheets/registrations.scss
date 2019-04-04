@@ -11,6 +11,8 @@ h1 {
   }
 }
 .avatar-upload.mt-140 {
+  margin-top: 140px;
+
   .avatar-edit{
     right: 25px;
     top: 15px;
@@ -29,8 +31,6 @@ h1 {
     top: 15px;
 
     input {
-      display: none;
-
       +label {
         display: inline-block;
         width: 34px;

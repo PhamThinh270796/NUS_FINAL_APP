@@ -7,7 +7,7 @@
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {class: "login100-form validate-form"}) do |f| %>
       <span class="login100-form-title">
         <%= render "devise/shared/error_messages", resource: resource %>
-        <%= t('password_recovery') %>
+        <%= t('.password_recovery') %>
       </span>
 
       <div class="wrap-input100 validate-input" data-validate="Password is required">
@@ -19,7 +19,7 @@
       </div>
 
       <div class="container-login100-form-btn">
-        <%= f.submit t("recovery"), class: "login100-form-btn" %>
+        <%= f.submit t(".recovery"), class: "login100-form-btn" %>
       </div>
 
       <div class="text-center pt-3">

@@ -1,0 +1,15 @@
+<div class="col-12" id="side-bar">
+  <ul class="row mt-sm-5">
+    <% if user_signed_in? %>
+      <% if current_user.role.eql?('user')%>
+        <div class="col-4 col-lg-12"><%= link_to t('.my_feeds'), root_path, class: "option-button #{active_class(root_path)}"%></div>
+        <div class="col-4 col-lg-12"><%= link_to t('.my_photos'), photos_path, class: "option-button #{active_class(photos_path)}"%></div>
+        <div class="col-4 col-lg-12"><%= link_to t('.my_albums'), albums_path, class: "option-button #{active_class(albums_path)}"%></div>
+      <% else %>
+        <div class="col-4 col-lg-12"><%= link_to t('.manage_users'), admin_root_path, class: "option-button #{active_class(admin_root_path)}"%></div>
+        <div class="col-4 col-lg-12"><%= link_to t('.manage_photos'), admin_photos_path, class: "option-button #{active_class(admin_photos_path)}"%></div>
+        <div class="col-4 col-lg-12"><%= link_to t('.manage_albums'), admin_albums_path, class: "option-button #{active_class(admin_albums_path)}"%></div>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

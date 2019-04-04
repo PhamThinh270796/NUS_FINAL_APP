@@ -54,7 +54,7 @@ a:focus {
 }
 
 a:hover {
-  text-decoration: none;
+  text-decoration: none !important;
   color: #3B6BAE;
 }
 
@@ -176,15 +176,67 @@ button:hover {
 
 .facebook-color {
   color: #3B6BAE;
-
-}
-
-.mt-140 {
-  margin-top: 140px
 }
 
 .clearfix::after {
   content: "";
   clear: both;
   display: table;
+}
+
+nav {
+  max-height: 55px;
+}
+
+.panigate-center ul.pagination {
+  justify-content: center;
+}
+
+ul.pagination {
+  li {
+    border-radius: 5px;
+
+    a {
+      color: #3B6BAE;
+    }
+  }
+
+  li.page-item.active {
+    a {
+      padding-top: 10px;
+      background-color: #3B6BAE;
+      border: #3B6BAE;
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  #back-to-feeds {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #side-bar {
+    text-align: center !important;
+    padding-top: 50px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  #side-bar {
+    margin-left: 50px;
+    margin-top: 100px;
+  }
+}
+
+#navbarNav ul li {
+  margin-top: 13px;
+}
+
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

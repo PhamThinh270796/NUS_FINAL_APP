@@ -1,17 +1,16 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "mt-5 " }) do |f| %>
 <div class="container">
-  <h4 class="facebook-color">Edit <%= resource_name.to_s.humanize %></h4>
+  <h4 class="facebook-color"><%= t('.edit ') + resource_name.to_s.humanize %></h4>
   <hr>
   <div class="row justify-content-center mt-3">
     <div class="col-md-5">
       <div class="avatar-upload mt-140">
         <div class="avatar-edit">
-          <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+          <%= f.file_field :profile_picture , id: "imageUpload" %>
           <label for="imageUpload"></label>
         </div>
         <div class="avatar-preview">
-          <div id="imagePreview">
-          </div>
+          <%= tag.div id: "imagePreview", style: "background-image: url(#{resource.profile_picture.url});" %>
         </div>
       </div>
     </div>
@@ -25,25 +24,25 @@
 
         <div class="form-group row mb-4">
           <label class="col-sm-4 col-form-label"></label>
-          <h5 class="facebook-color col-sm-6">Basic Information</h5>
+          <h5 class="facebook-color col-sm-6"><%= t('.basic_information')%></h5>
         </div>
 
         <div class="form-group row">
-          <label class="col-sm-4 col-form-label">Email</label>
+          <label class="col-sm-4 col-form-label"><%= t('email') %></label>
           <div class="col-sm-6">
             <%= f.email_field :email, readonly: true, class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group row">
-          <label class="col-sm-4">First Name</label>
+          <label class="col-sm-4"><%= t('first_name') %></label>
           <div class="col-sm-6">
             <%= f.text_field :first_name, class: "form-control" %>
           </div>
         </div>
 
         <div class="form-group row">
-          <label class="col-sm-4">Last Name</label>
+          <label class="col-sm-4"><%= t('last_name') %></label>
           <div class="col-sm-6">
             <%= f.text_field :last_name, class: "form-control" %>
           </div>
@@ -55,28 +54,28 @@
 
         <div class="form-group row mb-4">
           <label class="col-sm-4"></label>
-          <h5 class="facebook-color col-sm-6">Password</h5>
+          <h5 class="facebook-color col-sm-6"><%= t('password') %></h5>
         </div>
 
 
         <div class="form-group row">
-          <label class="col-sm-4">Current Password</label>
+          <label class="col-sm-4"><%= t('current_password') %></label>
           <div class="col-sm-6">
-            <%= f.password_field :current_password, class: "form-control", placeholder: "Current Password"%>
+            <%= f.password_field :current_password, class: "form-control", placeholder: t("current_password")%>
           </div>
         </div>
 
         <div class="form-group row">
-          <label class="col-sm-4">New Password</label>
+          <label class="col-sm-4"><%= t('new_password') %></label>
           <div class="col-sm-6">
-            <%= f.password_field :password, class: "form-control", placeholder: "New Password"%>
+            <%= f.password_field :password, class: "form-control", placeholder: t("new_password")%>
           </div>
         </div>
 
         <div class="form-group row">
-          <label class="col-sm-4">Confirmation Password</label>
+          <label class="col-sm-4"><%= t('confirmation_password') %></label>
           <div class="col-sm-6">
-            <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirmation Password"%>
+            <%= f.password_field :password_confirmation, class: "form-control", placeholder: t("confirmation_password")%>
           </div>
         </div>
 
@@ -86,7 +85,7 @@
         <div class="form-group row">
           <label class="col-sm-4"></label>
           <div class="col-sm-6">
-            <%= f.submit t("Save"), class: "btn btn-success" %>
+            <%= f.submit t("save"), class: "btn btn-success" %>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@
     <div class="col-lg-10 col-md-9 col-sm-6">
       <h4 class="facebook-color float-left pt-2">New Photo</h4>
     </div>
-    <div class="col-lg-2 col-md-3 col-sm-6"><%= link_to 'Back', :back, class: "float-right btn btn-dark btn-block"%>
+    <div class="col-lg-2 col-md-3 col-sm-6"><%= link_to 'Back', :back, class: "float-right btn btn-secondary btn-block"%>
     </div>
   </div>
   <hr>
@@ -16,20 +16,16 @@
       </div>
       <div class="form-group col-md-12">
         <label for="inputState">Sharing Mode</label>
-        <select id="inputState" class="form-control" name="photo[sharing_mode]">
-          <option selected value="1">Public</option>
-          <option value="0">Private</option>
-        </select>
+        <%= f.select(:is_public, [['Public', true],['Private', false]], {}, {class: "form-control"})%>
       </div>
       <div class="col-md-12">
         <div class="container">
           <div class="avatar-upload float-left">
+              <%= f.file_field :path, class: "image-upload mb-2" %>
             <div class="avatar-edit">
-              <%= f.file_field :path , id: "imageUpload" %>
-              <label for="imageUpload"></label>
             </div>
             <div class="avatar-preview">
-              <div id="imagePreview" style="background-image: url();">
+              <div id="imagePreview" class="image-preview"  style="background-image: url();">
               </div>
             </div>
           </div>
@@ -38,15 +34,15 @@
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <label>Descripstion</label>
-        <%= f.text_area :descripstion, class: "form-control rounded-0", rows: 5%>
+        <label>Description</label>
+        <%= f.text_area :description, class: "form-control rounded", rows: 5%>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-12">
       <div class="col-md-12">
-        <button type="submit" class="btn btn-dark">Save</button>
+        <button type="submit" class="btn btn-secondary"><%= t('save') %></button>
       </div>
     </div>
   </div>

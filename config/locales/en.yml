@@ -30,31 +30,97 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  recovery: "Recovery"
-  sign_up: "Sign Up"
-  user_pass: "Username / Password?"
-  fotobook_login: "Fotobook Login"
+  albums:
+    index:
+      add_new_album: "Add New Album"
+    new:
+      new_album: "New Album"
+    create:
+      album_added_successfully: "Album added successfully."
+      album_required: "Please insert your photos for album."
+    edit:
+      edit_album: "Edit Album"
+    update:
+      album_updated_successfully: "Album updated successfully."
+    destroy:
+      album_removed_successfully: "Album removed successfully."
+  photos:
+    index:
+      add_new_photo: "Add New Photo"
+    create:
+      photo_added_successfully: "Photo added successfully."
+      photo_required: "Please insert your photo."
+    edit:
+      edit_photo: "Edit Photo"
+    update:
+      photo_updated_successfully: "Photo updated successfully."
+    destroy:
+      photo_removed_successfully: "Photo removed successfully."
+  admin:
+    users:
+      edit:
+        edit_user_information: "Edit User Information"
+      index:
+        last_login: "Last Login"
+        users_management: "Users Management"
+      access_permission: "You don't have permission to access this page."
+      update:
+        update_user_success: "Update user successfully."
+      destroy:
+        delete_user_success: "Delete user successfully."
+  sessions:
+    create:
+      locked_account: "Account has been locked. Please contact your Administrator."
+  devise:
+    confirmations:
+      new:
+        resend_confirmation_instructions: "Resend confirmation instructions"
+    registrations:
+      new:
+        already_have_account: "Already have an account ?"
+        back_to_login_page: "Back to Login page"
+      edit:
+        basic_information: "Basic Information"
+    sessions:
+      new:
+        fotobook_login: "Fotobook Login"
+        remember_me: "Remember Me"
+        forgot: "Forgot"
+        user_pass: "Username / Password?"
+        create_an_account: "Create an account"
+    passwords:
+      new:
+        recovery: "Recovery"
+        password_recovery: "Password Recovery"
+    shared:
+      links:
+        forgot_your_password: "Forgot your password?"
+        didn't_receive_itconfirmation_instruction?: "Didn't receive confirmation instructions?"
+        didn't_receive_unlock_instructions?: "Didn't receive unlock instructions?"
+  shared:
+    sidebar:
+      manage_albums: "Manage Albums"
+      manage_photos: "Manage Photos"
+      manage_users: "Manage Users"
+      my_feeds: "My Feeds"
+      my_photos: "My Photos"
+      my_albums: "My Albums"
+
   login: "Login"
   log_out: "Log Out"
-  back_to_login_page: "Back to Login page"
-  already_have_account: "Already have an account ?"
-  create_an_account: "Create an account"
-  forgot_your_password: "Forgot your password?"
-  forgot: "Forgot"
-  Save: "Save"
-  remember_me: "Remember Me"
+  sign_up: "Sign Up"
   first_name: "First Name"
   last_name: "Last Name"
   email: "Email"
+  sharing_mode: "Sharing Mode"
+  current_password: "Current Password"
+  new_password: "New Password"
   password: "Password"
-  password_recovery: "Password Recovery"
   confirmation_password: "Confirmation Password"
-  didn't_receive_confirmation_instruction?: "Didn't receive confirmation instructions?"
-  didn't_receive_unlock_instructions?: "Didn't receive unlock instructions?"
-  resend_confirmation_instructions: "Resend confirmation instructions"
-  my_feeds: "My Feeds"
-  my_photos: "My Photos"
-  my_albums: "My Albums"
+  public: "Public"
+  private: "Private"
+  description: "Description"
+  album_title: "Album Title"
   email_cant_be_blank: "Email can't be blank"
   password_cant_be_blank: "Password can't be blank"
   last_name_cant_be_blank: "First name can't be blank"
@@ -63,3 +129,13 @@ en:
   password_min_length: "Password length must be greater than 5 characters"
   confirmation_password_must_match_password: "Confirmation password does not match"
   valid_email: "Please enter a valid email"
+  back_to_feeds: "< Back to Feeds"
+  are_you_sure: "Are you sure ?"
+  delete: "Delete"
+  edit: "Edit"
+  back: "Back"
+  save: "Save"
+  photo: "Photos"
+  album: "Album"
+  title: "Title"
+  created_by: "Created By"
