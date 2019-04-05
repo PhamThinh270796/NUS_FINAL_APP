@@ -34,7 +34,6 @@ class UserProvider < ApplicationRecord
         UserProvider.create!(provider: auth.provider,uid: auth.uid,user_id: registered_user.id)
         registered_user
       else
-        byebug
         user = User.create!(
           first_name: auth.info.name.partition(" ").first,
           last_name: auth.info.name.partition(" ").last,
