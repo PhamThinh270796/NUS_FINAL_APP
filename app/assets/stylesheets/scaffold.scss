@@ -3,22 +3,22 @@
 
 @font-face {
   font-family: Poppins-Regular;
-  src: font-url('/assets/poppins/Poppins-Regular.ttf');
+  src: font-url("poppins/Poppins-Regular.ttf") format("opentype");
 }
 
 @font-face {
   font-family: Poppins-Bold;
-  src: font-url('/assets/poppins/Poppins-Bold.ttf');
+  src: font-url("poppins/Poppins-Bold.ttf") format("opentype");
 }
 
 @font-face {
   font-family: Poppins-Medium;
-  src: font-url('/assets/poppins/Poppins-Medium.ttf');
+  src: font-url("poppins/Poppins-Medium.ttf") format("opentype");
 }
 
 @font-face {
   font-family: Montserrat-Bold;
-  src: font-url('/assets/montserrat/Montserrat-Bold.ttf');
+  src: font-url("montserrat/Montserrat-Bold.ttf") format("opentype");
 }
 
 /*//////////////////////////////////////////////////////////////////

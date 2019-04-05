@@ -77,3 +77,5 @@ gem "i18n-js", '~> 3.2.1'
 gem 'jquery-validation-rails', '~> 1.19.0'
 
 gem 'rspec-rails', '~> 3.8.2'
+
+gem 'aws-sdk-s3', '~> 1.36'
