@@ -83,3 +83,5 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 
 gem 'figaro'
+
+gem 'aws-sdk-s3', '~> 1.36'
