@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :trackable, :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
   has_many :albums, dependent: :destroy
   has_many :photos
-  has_many :user_providersm, dependent: :destroy
+  has_many :user_provider, dependent: :destroy
   mount_uploader :profile_picture, AvatarUploader
   validates :first_name, length: {maximum: 25}, presence: true
   validates :last_name, length: {maximum: 25}, presence: true
