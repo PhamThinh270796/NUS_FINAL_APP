@@ -1,4 +1,4 @@
-<section class="login_panel container animated fadeIn">
+<section class="login_panel container animated fadeIn ml-5">
   <div class="limiter">
     <div class="container-login100">
       <div class="wrap-login100">
@@ -32,7 +32,18 @@
           <%= f.submit t("login"), class: "login100-form-btn" %>
         </div>
 
-        <div class="form-check text-center mt-4">
+        <hr class="hr-text" data-content="or">
+
+        <div class="flex-c-m">
+          <%= link_to user_facebook_omniauth_authorize_path, class: "login100-social-item bg1" do %>
+            <i class="fab fa-facebook-f"></i>
+          <% end %>
+          <%= link_to user_google_oauth2_omniauth_authorize_path, class: "login100-social-item bg3" do %>
+            <i class="fab fa-google"></i>
+          <% end %>
+        </div>
+
+        <div class="form-check text-center mt-2">
           <% if devise_mapping.rememberable? %>
           <%= f.check_box :remember_me, class: "form-check-input"%>
           <% end %>
