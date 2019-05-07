@@ -78,4 +78,10 @@ gem 'jquery-validation-rails', '~> 1.19.0'
 
 gem 'rspec-rails', '~> 3.8.2'
 
+gem 'omniauth-google-oauth2'
+
+gem 'omniauth-facebook'
+
+gem 'figaro'
+
 gem 'aws-sdk-s3', '~> 1.36'

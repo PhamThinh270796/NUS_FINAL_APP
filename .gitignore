@@ -32,3 +32,5 @@
 
 # Ignore photo upload folder
 /public/uploads
+# Ignore application configuration
+/config/application.yml

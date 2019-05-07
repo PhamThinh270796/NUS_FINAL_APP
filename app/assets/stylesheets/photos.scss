@@ -179,11 +179,8 @@
   transition-delay: 0.3s;
 }
 
-h4.text-justify {
-  height: 3.6em;
-}
-
 h4.text-justify{
+  height: 3.6em;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

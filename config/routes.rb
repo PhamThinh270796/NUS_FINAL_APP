@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   root "home#index"
 
-  devise_for :users, controllers: {sessions: "sessions", registrations: "registrations"}
+  devise_for :users, controllers: {sessions: "sessions", registrations: "registrations", omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :users, only: [:edit, :update], path_names: {edit: 'user_path'}
   resources :photos, :albums
 end

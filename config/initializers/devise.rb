@@ -28,8 +28,8 @@ Devise.setup do |config|
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
-  # :mongoid (bson_ext recommended) by default. Other ORMs may be 
-  # available as additional gems. 
+  # :mongoid (bson_ext recommended) by default. Other ORMs may be
+  # available as additional gems.
   require 'devise/orm/active_record'
 
   # ==> Configuration for any authentication mechanism
@@ -296,4 +296,7 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
+  config.omniauth :google_oauth2, ENV["GOOGLE_APP_ID"], ENV["GOOGLE_SECRET_KEY"], {}
+  config.omniauth :facebook, ENV["FACEBOOK_APP_ID"], ENV["FACEBOOK_SECRET_KEY"]
 end
